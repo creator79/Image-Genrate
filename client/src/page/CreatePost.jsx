@@ -28,7 +28,6 @@ const CreatePost = () => {
     if (form.prompt) {
       try {
         setGeneratingImg(true);
-        // https://dalle-arbb.onrender.com
         const response = await fetch('https://image-genration-app.onrender.com/api/v1/dalle', {
           method: 'POST',
           headers: {
@@ -38,8 +37,10 @@ const CreatePost = () => {
             prompt: form.prompt,
           }),
         });
+        console.log(response + '-->response');
 
         const data = await response.json();
+        console.log(data+'-->data');
         setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
       } catch (err) {
         alert(err);
