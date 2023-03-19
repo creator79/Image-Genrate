@@ -7,6 +7,7 @@ import cors from 'cors';
 dotenv.config();
 
 const router = express.Router();
+router.use(express.json());
 router.use(cors())
 
 const configuration = new Configuration({
